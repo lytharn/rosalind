@@ -16,3 +16,8 @@ fn run_dna_x_number_of_dna_characters() {
 fn run_rna_x_dna_into_rna() {
     assert_eq!(run("rna", "GATGGAACTTGACTACGTAAATT"), "GAUGGAACUUGACUACGUAAAUU");
 }
+
+#[test]
+fn run_recv_x_dna_into_reverse_complement() {
+    assert_eq!(run("revc", "AAAACCCGGT"), "ACCGGGTTTT");
+}
