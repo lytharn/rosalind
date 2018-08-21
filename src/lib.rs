@@ -5,6 +5,7 @@ pub fn run(c: Config, input: &str) -> String {
         "dna" => dna::run(input),
         "rna" => rna::run(input),
         "revc" => revc::run(input),
+        "subs" => subs::run(input),
         _ => String::from("")
     }
 }
@@ -12,4 +13,5 @@ pub fn run(c: Config, input: &str) -> String {
 mod dna;
 mod rna;
 mod revc;
+mod subs;
 mod config;

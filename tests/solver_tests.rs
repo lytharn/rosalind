@@ -21,3 +21,8 @@ fn run_rna_x_dna_into_rna() {
 fn run_recv_x_dna_into_reverse_complement() {
     assert_eq!(run("revc", "AAAACCCGGT"), "ACCGGGTTTT");
 }
+
+#[test]
+fn run_subs_x_dna_and_substring_to_substring_pos() {
+    assert_eq!(run("subs", "GATATATGCATATACTT\nATAT"), "2 4 10");
+}

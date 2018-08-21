@@ -2,6 +2,7 @@ extern crate rosalind;
 
 use std::env;
 use std::io;
+use std::io::Read;
 use std::process;
 
 fn main() {
@@ -12,7 +13,7 @@ fn main() {
     });
 
     let mut input = String::new();
-    io::stdin().read_line(&mut input).unwrap_or_else(|e| {
+    io::stdin().read_to_string(&mut input).unwrap_or_else(|e| {
         eprintln!("Problem reading input: {}", e);
         process::exit(1);
     });
