@@ -22,6 +22,6 @@ fn bench_dna(b: &mut Bencher) {
     }).collect();
 
     b.iter(|| {
-        black_box(run("subs", &dna));
+        black_box(run("dna", &dna));
     });
 }
