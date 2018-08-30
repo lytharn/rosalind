@@ -31,6 +31,15 @@ fn bench_dna(b: &mut Bencher) {
 }
 
 #[bench]
+fn bench_dnap(b: &mut Bencher) {
+    let dna: String = generate_dna(10*1000*1000).collect();
+
+    b.iter(|| {
+        black_box(run("dnap", &dna));
+    });
+}
+
+#[bench]
 fn bench_rna(b: &mut Bencher) {
     let dna: String = generate_dna(100*1000).collect();
 

@@ -13,6 +13,12 @@ fn run_dna_x_number_of_dna_characters() {
 }
 
 #[test]
+fn run_pdna_x_number_of_dna_characters() {
+    let input = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC";
+    assert_eq!(run("dnap", input), "20 12 17 21");
+}
+
+#[test]
 fn run_rna_x_dna_into_rna() {
     assert_eq!(run("rna", "GATGGAACTTGACTACGTAAATT"), "GAUGGAACUUGACUACGUAAAUU");
 }

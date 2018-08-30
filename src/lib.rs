@@ -1,8 +1,11 @@
+extern crate rayon;
+
 pub use self::config::Config;
 
 pub fn run(c: Config, input: &str) -> String {
     match c.problem() {
         "dna" => dna::run(input),
+        "dnap" => dnap::run(input),
         "rna" => rna::run(input),
         "revc" => revc::run(input),
         "subs" => subs::run(input),
@@ -11,6 +14,7 @@ pub fn run(c: Config, input: &str) -> String {
 }
 
 mod dna;
+mod dnap;
 mod rna;
 mod revc;
 mod subs;
