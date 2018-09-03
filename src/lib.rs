@@ -9,6 +9,7 @@ pub fn run(c: Config, input: &str) -> String {
         "rna" => rna::run(input),
         "rnap" => rnap::run(input),
         "revc" => revc::run(input),
+        "revcp" => revcp::run(input),
         "subs" => subs::run(input),
         _ => String::from("")
     }
@@ -19,5 +20,6 @@ mod dnap;
 mod rna;
 mod rnap;
 mod revc;
+mod revcp;
 mod subs;
 mod config;
