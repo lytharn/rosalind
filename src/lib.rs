@@ -11,6 +11,7 @@ pub fn run(c: Config, input: &str) -> String {
         "revc" => revc::run(input),
         "revcp" => revcp::run(input),
         "subs" => subs::run(input),
+        "subsp" => subsp::run(input),
         _ => String::from("")
     }
 }
@@ -22,4 +23,5 @@ mod rnap;
 mod revc;
 mod revcp;
 mod subs;
+mod subsp;
 mod config;

@@ -85,3 +85,14 @@ fn bench_subs(b: &mut Bencher) {
         black_box(run("subs", &dna));
     });
 }
+
+#[bench]
+fn bench_subsp(b: &mut Bencher) {
+    let dna: String = generate_dna(100*1000)
+        .chain(("\n".to_string()+&"ATGC".repeat(10)).chars())
+        .collect();
+
+    b.iter(|| {
+        black_box(run("subsp", &dna));
+    });
+}
