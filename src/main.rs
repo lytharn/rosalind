@@ -6,8 +6,7 @@ use std::io::Read;
 use std::process;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    let config = rosalind::Config::new(&args).unwrap_or_else(|e| {
+    let config = rosalind::Config::new(env::args()).unwrap_or_else(|e| {
         eprintln!("Problem parsing arguments: {}", e);
         process::exit(1);
     });

@@ -1,20 +1,31 @@
 #[cfg(test)]
 mod tests;
 
-pub struct Config<'a> {
-    problem :&'a str
+pub struct Config {
+    pub problem: String,
+    pub threads: Option<usize>,
 }
 
-impl<'a> Config<'a> {
-    pub fn new(args: &'a[String]) -> Result<Config, &'static str>  {
-        if args.len() > 1 {
-            Ok(Config {problem: &args[1]})
-        } else {
-            Err("Need argument to specify problem!")
-        }
-    }
+impl Config {
+    pub fn new(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
+        args.next();
 
-    pub fn problem(&self) -> &str {
-        self.problem
+        let problem = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Need argument to specify problem!"),
+        };
+
+        let threads: Option<usize> = match args.next().map(|s| {
+            match s.parse() {
+                Ok(0) | Err(_) => return Err("Invalid number of threads!"),
+                Ok(threads) => Ok(threads),
+            }
+        }) {
+            Some(Err(e)) => return Err(e),
+            Some(Ok(threads)) => Some(threads),
+            _ => None,
+        };
+
+        Ok(Config {problem, threads})
     }
 }
