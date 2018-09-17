@@ -11,8 +11,7 @@ pub fn run(input: &str) -> String {
         None => return String::from("")
     };
 
-    dna[..dna.len() - substring.len() + 1].par_char_indices()
-        .map(|(i, _)| i)
+    (0..dna.len() - substring.len() + 1).into_par_iter()
         .filter(|i| &dna[*i..i+substring.len()] == substring)
         .map(|i| (i+1).to_string())
         .reduce(|| String::new(), |mut a, b| {

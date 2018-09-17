@@ -9,9 +9,7 @@ pub fn run(input: &str) -> String {
         None => return String::from("")
     };
 
-    dna.char_indices()
-        .map(|(i, _)| i)
-        .take_while(|i| i + substring.len() <= dna.len())
+    (0..dna.len()-substring.len() + 1)
         .filter(|i| &dna[*i..i+substring.len()] == substring)
         .map(|i| (i+1).to_string())
         .fold(String::from(""), |acc, s| {
