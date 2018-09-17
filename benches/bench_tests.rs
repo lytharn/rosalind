@@ -74,7 +74,7 @@ fn bench_dnapx(b: &mut Bencher) {
 
 #[bench]
 fn bench_rna(b: &mut Bencher) {
-    let dna: String = generate_dna(1000*1000).collect();
+    let dna: String = generate_dna(10*1000*1000).collect();
 
     b.iter(|| {
         black_box(run("rna", &dna));
@@ -83,7 +83,7 @@ fn bench_rna(b: &mut Bencher) {
 
 #[bench]
 fn bench_rnap1(b: &mut Bencher) {
-    let dna: String = generate_dna(1000*1000).collect();
+    let dna: String = generate_dna(10*1000*1000).collect();
 
     b.iter(|| {
         black_box(run_with_threads("rnap", "1", &dna));
@@ -92,7 +92,7 @@ fn bench_rnap1(b: &mut Bencher) {
 
 #[bench]
 fn bench_rnap2(b: &mut Bencher) {
-    let dna: String = generate_dna(1000*1000).collect();
+    let dna: String = generate_dna(10*1000*1000).collect();
 
     b.iter(|| {
         black_box(run_with_threads("rnap", "2", &dna));
@@ -101,7 +101,7 @@ fn bench_rnap2(b: &mut Bencher) {
 
 #[bench]
 fn bench_rnap4(b: &mut Bencher) {
-    let dna: String = generate_dna(1000*1000).collect();
+    let dna: String = generate_dna(10*1000*1000).collect();
 
     b.iter(|| {
         black_box(run_with_threads("rnap", "4", &dna));
@@ -110,7 +110,7 @@ fn bench_rnap4(b: &mut Bencher) {
 
 #[bench]
 fn bench_rnapx(b: &mut Bencher) {
-    let dna: String = generate_dna(1000*1000).collect();
+    let dna: String = generate_dna(10*1000*1000).collect();
 
     b.iter(|| {
         black_box(run("rnap", &dna));

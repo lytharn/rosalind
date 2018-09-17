@@ -4,10 +4,11 @@ mod tests;
 use rayon::prelude::*;
 
 pub fn run(dna: &str) -> String {
-    dna.par_chars().map(|c| {
+    let result = dna.as_bytes().par_iter().map(|c| {
         match c {
-            'T' => 'U',
-            _ => c,
+            b'T' => b'U',
+            _ => *c,
         }
-    }).collect()
+    }).collect();
+    String::from_utf8(result).unwrap()
 }
