@@ -1,8 +1,8 @@
 #[cfg(test)]
 mod tests;
 
-pub fn run(dna: &str) -> String {
-    let result = dna.as_bytes().iter().map(|c| {
+pub fn run(dna: &[u8]) -> String {
+    let result = dna.iter().map(|c| {
         match *c {
             b'T' => b'U',
             _ => *c,

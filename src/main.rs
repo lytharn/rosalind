@@ -1,8 +1,9 @@
 extern crate rosalind;
+extern crate memmap;
 
+use memmap::MmapOptions;
 use std::env;
-use std::io;
-use std::io::Read;
+use std::fs::File;
 use std::process;
 
 fn main() {
@@ -11,11 +12,14 @@ fn main() {
         process::exit(1);
     });
 
-    let mut input = String::new();
-    io::stdin().read_to_string(&mut input).unwrap_or_else(|e| {
-        eprintln!("Problem reading input: {}", e);
+    let file = File::open(&config.file_path).unwrap_or_else(|e| {
+        eprintln!("Problem reading file: {}", e);
         process::exit(1);
     });
+    let input = unsafe { MmapOptions::new().map(&file).unwrap_or_else(|e| {
+        eprintln!("Problem memory mapping file: {}", e);
+        process::exit(1);
+    }) };
 
     let output = rosalind::run(config, &input);
     println!("{}", output);

@@ -3,8 +3,8 @@ mod tests;
 
 use rayon::prelude::*;
 
-pub fn run(dna: &str) -> String {
-    let result = dna.as_bytes().par_iter().map(|c| {
+pub fn run(dna: &[u8]) -> String {
+    let result = dna.par_iter().map(|c| {
         match c {
             b'T' => b'U',
             _ => *c,

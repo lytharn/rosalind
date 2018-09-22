@@ -5,3 +5,4 @@ authors = ["lytharn"]
 
 [dependencies]
 rayon = "1.0"
+memmap = "0.7"

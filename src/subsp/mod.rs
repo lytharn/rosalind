@@ -3,10 +3,11 @@ mod tests;
 
 use rayon::prelude::*;
 
-pub fn run(input: &str) -> String {
-    let mut lines = input.lines();
-    let dna = lines.next().unwrap_or("");
+pub fn run(input: &[u8]) -> String {
+    let mut lines = input.split(|b|b == &b'\n');
+    let dna = lines.next().unwrap_or(&[]);
     let substring = match lines.next() {
+        Some(&[]) => return String::from(""),
         Some(val) => val,
         None => return String::from("")
     };

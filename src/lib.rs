@@ -2,7 +2,7 @@ extern crate rayon;
 
 pub use self::config::Config;
 
-pub fn run(c: Config, input: &str) -> String {
+pub fn run(c: Config, input: &[u8]) -> String {
     match c.problem.as_ref() {
         "dna" => dna::run(input),
         "dnap" => run_in_parallel(c,|| dnap::run(input)),
