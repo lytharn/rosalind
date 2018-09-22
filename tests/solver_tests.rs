@@ -2,7 +2,7 @@ extern crate rosalind;
 
 fn run(arg: &str, input: &str) -> String {
     let args = vec![String::from("rosalind"), String::from(arg)];
-    let config = rosalind::Config::new(&args).unwrap();
+    let config = rosalind::Config::new(args.into_iter()).unwrap();
     rosalind::run(config, input)
 }
 
