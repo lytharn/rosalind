@@ -10,5 +10,5 @@ pub fn run(dna: &[u8]) -> String {
             _ => *c,
         }
     }).collect();
-    String::from_utf8(result).unwrap()
+    unsafe { String::from_utf8_unchecked(result) }
 }
