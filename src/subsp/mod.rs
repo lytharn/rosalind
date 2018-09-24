@@ -12,6 +12,10 @@ pub fn run(input: &[u8]) -> String {
         None => return String::from("")
     };
 
+    if dna.len() < substring.len() {
+        return String::from("")
+    }
+
     (0..dna.len() - substring.len() + 1).into_par_iter()
         .filter(|i| &dna[*i..i+substring.len()] == substring)
         .map(|i| (i+1).to_string())
