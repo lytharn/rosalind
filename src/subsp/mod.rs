@@ -19,11 +19,10 @@ pub fn run(input: &[u8]) -> String {
     (0..dna.len() - substring.len() + 1).into_par_iter()
         .filter(|i| &dna[*i..i+substring.len()] == substring)
         .map(|i| (i+1).to_string())
-        .reduce(|| String::new(), |mut a, b| {
+        .reduce(|| String::new(), |a, b| {
             if !b.is_empty() && !a.is_empty() {
-                a.push(' ');
+                return a + " " + &b
             }
-            a.push_str(&b);
-            a
+            a + &b
         })
 }
