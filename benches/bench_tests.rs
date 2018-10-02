@@ -119,7 +119,7 @@ fn bench_rnapx(b: &mut Bencher) {
 
 #[bench]
 fn bench_revc(b: &mut Bencher) {
-    let dna: Vec<_> = generate_dna(1000*1000).collect();
+    let dna: Vec<_> = generate_dna(10*1000*1000).collect();
 
     b.iter(|| {
         black_box(run("revc", &dna));
@@ -128,7 +128,7 @@ fn bench_revc(b: &mut Bencher) {
 
 #[bench]
 fn bench_revcp1(b: &mut Bencher) {
-    let dna: Vec<_> = generate_dna(1000*1000).collect();
+    let dna: Vec<_> = generate_dna(10*1000*1000).collect();
 
     b.iter(|| {
         black_box(run_with_threads("revcp", "1", &dna));
@@ -137,7 +137,7 @@ fn bench_revcp1(b: &mut Bencher) {
 
 #[bench]
 fn bench_revcp2(b: &mut Bencher) {
-    let dna: Vec<_> = generate_dna(1000*1000).collect();
+    let dna: Vec<_> = generate_dna(10*1000*1000).collect();
 
     b.iter(|| {
         black_box(run_with_threads("revcp", "2", &dna));
@@ -146,7 +146,7 @@ fn bench_revcp2(b: &mut Bencher) {
 
 #[bench]
 fn bench_revcp4(b: &mut Bencher) {
-    let dna: Vec<_> = generate_dna(1000*1000).collect();
+    let dna: Vec<_> = generate_dna(10*1000*1000).collect();
 
     b.iter(|| {
         black_box(run_with_threads("revcp", "4", &dna));
@@ -155,7 +155,7 @@ fn bench_revcp4(b: &mut Bencher) {
 
 #[bench]
 fn bench_revcpx(b: &mut Bencher) {
-    let dna: Vec<_> = generate_dna(1000*1000).collect();
+    let dna: Vec<_> = generate_dna(10*1000*1000).collect();
 
     b.iter(|| {
         black_box(run("revcp", &dna));
@@ -164,7 +164,7 @@ fn bench_revcpx(b: &mut Bencher) {
 
 #[bench]
 fn bench_subs(b: &mut Bencher) {
-    let dna: Vec<_> = generate_dna(1000*1000)
+    let dna: Vec<_> = generate_dna(10*1000*1000)
         .chain(generate_dna(40))
         .collect();
 
@@ -175,7 +175,7 @@ fn bench_subs(b: &mut Bencher) {
 
 #[bench]
 fn bench_subsp1(b: &mut Bencher) {
-    let dna: Vec<_> = generate_dna(1000*1000)
+    let dna: Vec<_> = generate_dna(10*1000*1000)
         .chain(generate_dna(40))
         .collect();
 
@@ -187,7 +187,7 @@ fn bench_subsp1(b: &mut Bencher) {
 
 #[bench]
 fn bench_subsp2(b: &mut Bencher) {
-    let dna: Vec<_> = generate_dna(1000*1000)
+    let dna: Vec<_> = generate_dna(10*1000*1000)
         .chain(generate_dna(40))
         .collect();
 
@@ -198,7 +198,7 @@ fn bench_subsp2(b: &mut Bencher) {
 
 #[bench]
 fn bench_subsp4(b: &mut Bencher) {
-    let dna: Vec<_> = generate_dna(1000*1000)
+    let dna: Vec<_> = generate_dna(10*1000*1000)
         .chain(generate_dna(40))
         .collect();
 
@@ -210,7 +210,7 @@ fn bench_subsp4(b: &mut Bencher) {
 
 #[bench]
 fn bench_subspx(b: &mut Bencher) {
-    let dna: Vec<_> = generate_dna(1000*1000)
+    let dna: Vec<_> = generate_dna(10*1000*1000)
         .chain(generate_dna(40))
         .collect();
 
