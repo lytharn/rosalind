@@ -12,7 +12,7 @@ pub fn run(c: Config, input: &[u8]) -> String {
         "revcp" => run_in_parallel(c,|| revcp::run(input)),
         "subs" => subs::run(input),
         "subsp" => run_in_parallel(c, || subsp::run(input)),
-        _ => String::from("")
+        _ => String::new()
     }
 }
 

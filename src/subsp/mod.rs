@@ -7,13 +7,13 @@ pub fn run(input: &[u8]) -> String {
     let mut lines = input.split(|b|b == &b'\n');
     let dna = lines.next().unwrap_or(&[]);
     let substring = match lines.next() {
-        Some(&[]) => return String::from(""),
+        Some(&[]) => return String::new(),
         Some(val) => val,
-        None => return String::from("")
+        None => return String::new()
     };
 
     if dna.len() < substring.len() {
-        return String::from("")
+        return String::new()
     }
 
     (0..dna.len() - substring.len() + 1).into_par_iter()
