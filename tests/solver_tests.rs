@@ -13,7 +13,7 @@ fn run_dna_x_number_of_dna_characters() {
 }
 
 #[test]
-fn run_pdna_x_number_of_dna_characters() {
+fn run_dnap_x_number_of_dna_characters() {
     let input = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC".as_bytes();
     assert_eq!(run("dnap", input), "20 12 17 21");
 }
@@ -24,11 +24,26 @@ fn run_rna_x_dna_into_rna() {
 }
 
 #[test]
+fn run_rnap_x_dna_into_rna() {
+    assert_eq!(run("rnap", "GATGGAACTTGACTACGTAAATT".as_bytes()), "GAUGGAACUUGACUACGUAAAUU");
+}
+
+#[test]
 fn run_recv_x_dna_into_reverse_complement() {
     assert_eq!(run("revc", "AAAACCCGGT".as_bytes()), "ACCGGGTTTT");
 }
 
 #[test]
+fn run_recvp_x_dna_into_reverse_complement() {
+    assert_eq!(run("revcp", "AAAACCCGGT".as_bytes()), "ACCGGGTTTT");
+}
+
+#[test]
 fn run_subs_x_dna_and_substring_to_substring_pos() {
     assert_eq!(run("subs", "GATATATGCATATACTT\nATAT".as_bytes()), "2 4 10");
+}
+
+#[test]
+fn run_subsp_x_dna_and_substring_to_substring_pos() {
+    assert_eq!(run("subsp", "GATATATGCATATACTT\nATAT".as_bytes()), "2 4 10");
 }
